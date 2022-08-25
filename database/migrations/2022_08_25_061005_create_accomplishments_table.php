@@ -13,8 +13,10 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('add_table_homes', function (Blueprint $table) {
+        Schema::create('accomplishments', function (Blueprint $table) {
             $table->id();
+            $table->integer('no_completed_projects');
+            $table->float('rating');
             $table->timestamps();
         });
     }
@@ -26,6 +28,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('add_table_homes');
+        Schema::dropIfExists('accomplishments');
     }
 };

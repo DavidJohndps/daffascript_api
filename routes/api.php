@@ -2,6 +2,7 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ContactUsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,3 +18,7 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+Route::get('/contact_us', [ContactUsController::class, 'index']);
+Route::post('/contact_us', [ContactUsController::class, 'create']);
+Route::post('/contact_us', [ContactUsController::class, 'destroy']);

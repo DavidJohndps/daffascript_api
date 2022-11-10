@@ -26,6 +26,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 Route::get('/work', [WorkController::class,'index']);
 Route::post('/work', [WorkController::class,'create']);
 Route::post('/work/update', [WorkController::class,'update']);
+Route::get('/work/get', [WorkController::class,'getById']);
 Route::delete('/work/destroy', [WorkController::class,'destroy']);
 
 Route::get('/contact-us', [ContactUsController::class,'index']);

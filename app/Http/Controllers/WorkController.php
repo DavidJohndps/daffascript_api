@@ -40,6 +40,12 @@ class WorkController extends Controller
 
     }
 
+    public function getById(Request $request){
+        $work = Work::find($request->id);
+
+        return response()->json(['work' => $work], 200);
+    }
+
     public function destroy(Request $request){
         $work = Work::find($request->id);
         $work->delete();

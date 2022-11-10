@@ -2,21 +2,20 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Work;
 use Illuminate\Http\Request;
-use app\Models\work;
 
 class WorkController extends Controller
 {
     //
     public function index(){
-        $work = work::all();
-
+        $work = Work::all();
         return response()->json(['work' => $work], 200);
 
     }
 
     public function create(Request $request){
-        $work = new work;
+        $work = new Work;
         $work->name = $request->name;
         $work->name_company = $request->name_company;
         $work->img = $request->img;
@@ -29,7 +28,7 @@ class WorkController extends Controller
     }
 
     public function update(Request $request){
-        $work = work::find($request->id);
+        $work = Work::find($request->id);
         $work->name = $request->name;
         $work->name_company = $request->name_company;
         $work->img = $request->img;
@@ -42,10 +41,9 @@ class WorkController extends Controller
     }
 
     public function destroy(Request $request){
-        $work = work::find($request->id);
+        $work = Work::find($request->id);
         $work->delete();
 
         return response()->json(['work' => $work], 200);
     }
-
 }

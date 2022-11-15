@@ -39,3 +39,13 @@ Route::get('/accomplisment', [AccomplishmentController::class,'index']);
 Route::post('/accomplisment', [AccomplishmentController::class,'create']);
 Route::post('/accomplisment/update', [AccomplishmentController::class,'update']);
 Route::delete('/accomplisment/destroy', [AccomplishmentController::class,'destroy']);
+
+Route::get('/Review', [ReviewController::class,'index']);
+Route::post('/Review', [ReviewController::class,'create']);
+Route::post('/Review/update', [ReviewController::class,'update']);
+Route::delete('/Review/destroy', [ReviewController::class,'destroy']);
+
+Route::get('/Service', [ServiceController::class,'index']);
+Route::post('/Service', [ServiceController::class,'create']);
+Route::post('/Service/update', [ServiceController::class,'update']);
+Route::delete('/Service/destroy', [ServiceController::class,'destroy']);

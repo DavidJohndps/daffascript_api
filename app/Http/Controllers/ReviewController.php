@@ -42,7 +42,7 @@ class ReviewController extends Controller
     public function destroy(Request $request)
     {
         $review = Review::find($request->id);
-        $reviwe->delete();
+        $review->delete();
 
         return response()->json(['reviews'=> $review], 200);
     }

@@ -15,9 +15,10 @@ return new class extends Migration
     {
         Schema::create('reviews', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->float('rating');
-            $table->string('desc');
+            $table->string('name')->nullable();
+            $table->string('name_company')->nullable();
+            $table->string('img')->nullable();
+            $table->string('desc')->nullable();
             $table->timestamps();
         });
     }

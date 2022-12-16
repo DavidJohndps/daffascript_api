@@ -46,12 +46,11 @@ class ContactUsController extends Controller
         return response()->json(['data' => $contact_us], 200);
     }
 
-    public function destroy(Request $request) 
+    public function destroy(Request $request)
     {
-        dd($request);
-        $contact_us = Contact_us::find($request->id);
-        $contact_us->delete();
+        $team = Contact_us::find($request->id);
+        $team->delete();
 
-        return response()->json(['data' => $contact_us], 200);
+        return response()->json(['data' => $team], 200);
     }
 }

@@ -10,6 +10,7 @@ use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\TeamController;
 use App\Http\Controllers\TechnologieController;
 use App\Http\Controllers\ExpertiseController;
+use App\Http\Controllers\AuthController;
 
 /*
 |--------------------------------------------------------------------------
@@ -26,6 +27,9 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
+
+Route::get('/cms', [AuthController::class, 'dashboard'])->middleware('auth:sanctum');
+
 Route::get('/work', [WorkController::class,'index']);
 Route::post('/work', [WorkController::class,'create']);
 Route::post('/work/update/{id}', [WorkController::class,'update']);
@@ -36,7 +40,7 @@ Route::get('/contact-us', [ContactUsController::class,'index']);
 Route::post('/contact-us', [ContactUsController::class,'create']);
 Route::post('/contact-us/update', [ContactUsController::class,'update']);
 Route::get('/contact-us/get/{id}', [ContactUsController::class,'getById']);
-Route::delete('/contact-us/destroy', [ContactUsController::class,'destroy']);
+Route::delete('/contact-us/destroy/{id}', [ContactUsController::class,'destroy']);
 
 
 Route::get('/accomplisment', [AccomplishmentController::class,'index']);
@@ -59,18 +63,18 @@ Route::delete('/service/destroy/{id}', [ServiceController::class,'destroy']);
 
 Route::get('/team', [TeamController::class,'index']);
 Route::post('/team', [TeamController::class,'create']);
-Route::post('/team/update', [TeamController::class,'update']);
+Route::post('/team/update/{id}', [TeamController::class,'update']);
 Route::get('/team/get/{id}', [TeamController::class,'getById']);
-Route::delete('/team/destroy', [TeamController::class,'destroy']);
+Route::delete('/team/destroy/{id}', [TeamController::class,'destroy']);
 
 Route::get('/technologie', [TechnologieController::class,'index']);
 Route::post('/technologie', [TechnologieController::class,'create']);
 Route::post('/technologie/update/{id}', [TechnologieController::class,'update']);
 Route::get('/technologie/get/{id}', [TechnologieController::class,'getById']);
-Route::delete('/technologie/destroy', [TechnologieController::class,'destroy']);
+Route::delete('/technologie/destroy/{id}', [TechnologieController::class,'destroy']);
 
 Route::get('/expertise', [ExpertiseController::class,'index']);
 Route::post('/expertise', [ExpertiseController::class,'create']);
-Route::post('/expertise/update', [ExpertiseController::class,'update']);
+Route::post('/expertise/update/{id}', [ExpertiseController::class,'update']);
 Route::get('/expertise/get/{id}', [ExpertiseController::class,'getById']);
-Route::delete('/expertise/destroy', [ExpertiseController::class,'destroy']);
+Route::delete('/expertise/destroy/{id}', [ExpertiseController::class,'destroy']);

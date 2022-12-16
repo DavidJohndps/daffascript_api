@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use app\Models\Expertise;
+use App\Models\Expertise;
 use Illuminate\Http\Request;
 
 class ExpertiseController extends Controller
@@ -11,7 +11,7 @@ class ExpertiseController extends Controller
     public function index()
     {
         $expertise = Expertise::all();
-        return response()->json(['expertises'=>$expertise], 200);
+        return response()->json(['data'=>$expertise], 200);
     }
 
     public function create(Request $request)
@@ -28,7 +28,7 @@ class ExpertiseController extends Controller
 
         $expertise->save();
         
-        return response()->json(['experties' => $expertise], 200);
+        return response()->json(['data'=>$expertise], 200);
     }
 
     public function update (Request $request, $id)
@@ -45,13 +45,13 @@ class ExpertiseController extends Controller
 
         $expertise->save();
 
-        return response()->json(['expertises' => $expertise], 200);
+        return response()->json(['data' => $expertise], 200);
     }
 
     public function getByid ($id)
     {
         $expertise = Expertise::find($id);
-        return response()->json(['expertises' => $expertise], 200);
+        return response()->json(['data' => $expertise], 200);
     }
 
     public function destroy ($id)
@@ -59,7 +59,7 @@ class ExpertiseController extends Controller
         $expertise = Expertise::find($id);
         $expertise->delete();
 
-        return response()->json(['expertises' => $expertise], 200);
+        return response()->json(['data' => $expertise], 200);
 
     }
 }
